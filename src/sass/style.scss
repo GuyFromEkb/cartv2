@@ -1,0 +1,54 @@
+@import "libs/bootstrap-reboot.min";
+
+* {
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+button {
+	outline: none !important;
+	transition-duration: 0.2s;
+	border: none;
+	&:active {
+		transform: scale(1.02);
+	}
+}
+body {
+	padding-top: 100px;
+	background: linear-gradient(90deg, #3a4270, #5cc3ca);
+	position: relative;
+	max-width: 1440px;
+	margin: 0 auto;
+}
+
+.container {
+	max-width: 1050px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.window {
+    padding: 30px 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background: linear-gradient(90deg, #3a4270, #5cc3ca);
+	max-width: 260px;
+	border-radius: 10px;
+}
+.form-item {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	input,
+	button {
+		max-width: 300px;
+		border-radius: 10px;
+	}
+	input {
+		padding: 0 10px;
+	}
+}
