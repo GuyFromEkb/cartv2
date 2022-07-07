@@ -1,5 +1,7 @@
 "use strict";
 document.addEventListener('DOMContentLoaded', () => {
+    let procent = 0;
+    let discountIsActive = false;
 
     //Данные с формы
     document.querySelector('.form-item').addEventListener('submit', (e) => {
@@ -14,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.target.reset();
 
     })
+
     //Поиск по id, если в списке уже есть товар с таким id, возвраает данный элемент
     function searchId(id) {
         const itemInList = document.querySelector('.list__wrap').querySelector(`[data-id="${id}"]`);
@@ -59,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
 
-
+        renderDiscount();
 
     }
 
@@ -86,15 +89,20 @@ document.addEventListener('DOMContentLoaded', () => {
         // console.log(itemsInLists)
 
         if (itemsInLists === 0) {
+            document.querySelector('.list__bottom').classList.remove('show');
             document.querySelector('.list__empty').classList.add('show');
             document.querySelector('.list__title').classList.remove('show');
+            deleteDiscount();
+            document.querySelector('.form-discount').reset();
 
         }
         else {
+            document.querySelector('.list__bottom').classList.add('show');
             document.querySelector('.list__title').classList.add('show');
             document.querySelector('.list__empty').classList.remove('show');
         }
-        calculation()
+        calculation();
+        renderDiscount();
 
     }
     checkListEmpty()
@@ -113,6 +121,58 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.list__sum').innerText = result + " Р";
         document.querySelector('.list__count').innerText = allItems.length;
     }
+
+    //скидка
+
+    document.querySelector('.form-discount').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+        procent = (Object.fromEntries(formData.entries())).discount;
+        discountIsActive = true;
+
+        (procent == 0) ? deleteDiscount() : renderDiscount();
+
+
+
+
+    })
+
+    //отрисовка скидки
+    function renderDiscount(num = procent) {
+
+
+        if (discountIsActive) {
+            const items = document.querySelectorAll('[data-price]');
+            const procent = num / 100;
+
+            items.forEach(item => {
+                item.classList.add('show');
+
+                const price = parseInt(item.innerText);
+
+                item.nextElementSibling.innerText = Math.round(price - (price * procent)) + " Р"
+
+            })
+        }
+
+
+
+    }
+    //Удаление скидки 
+    function deleteDiscount() {
+        discountIsActive = false;
+        const items = document.querySelectorAll('[data-price]');
+
+        items.forEach(item => {
+            item.classList.remove('show');
+
+            item.nextElementSibling.innerText = "";
+
+        })
+    }
+
+    document.querySelector('.off-discount').addEventListener('click', deleteDiscount)
 
 
 });
