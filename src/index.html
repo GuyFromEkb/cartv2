@@ -5,54 +5,67 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="css/style.min.css" />
-		<title>Cartv2</title>
+		<title>listv2</title>
 	</head>
 
 	<body>
 		<div class="container">
 			<div class="window">
 				<form action="#" class="form-item">
-					<input required placeholder="Название товара" type="text" name="name" />
-					<input required placeholder="кол-во товара" type="number" name="count" />
-					<input required placeholder="цена товара" type="number" name="price" />
+					<input
+						required
+						placeholder="Название товара"
+						type="text"
+						name="name"
+					/>
+					<input required placeholder="ID товара" type="number" name="id" />
+					<input
+						required
+						placeholder="цена товара"
+						type="number"
+						name="price"
+					/>
 					<button>Добавить</button>
 				</form>
 			</div>
 
-			<div class="cart">
-				<div class="cart__title">Корзина</div>
-				<div class="cart__empty">
-					<p>Корзина пуста</p>
+			<div class="list">
+				<!-- <div class="list__title">Список</div> -->
+                <div class="list__title">
+					<p>Список</p>
 				</div>
 
-				<div class="cart__wrap">
+				<div class="list__empty">
+					<p>Список пуст</p>
+				</div>
 
+				<div class="list__wrap">
 
-					<!-- <div class="item">
-                        <div class="item__close"></div>
+					<div class="item">
+						<div class="item__close"></div>
 						<div class="item__name">
-							<p>Название товара:</p>
-							<span>dasdasdasdas</span>
+							<p>Наушники</p>
 						</div>
-						<div class="item__count">
-							<p>кол-во товара:</p>
-							<span>dasdasdasdas</span>
+						<div data-id="12" class="item__id">
+							<p>ID: <span>12</span></p>
 						</div>
 						<div class="item__price">
-							<p>Цена товара:</p>
-							<span>dasdasdasdas</span>
+							<span data-price>441 Р</span>
+							<span data-discount=""></span>
 						</div>
-					</div> -->
-
-
-
+					</div>
 
 
 				</div>
 
-				<div class="cart__discount">
+				<div class="list__stats">
+					<p>Итого: <span class="list__sum">44 р</span></p>
+					<p>Всего товара: <span class="list__count">23</span> шт.</p>
+				</div>
+
+				<div class="list__discount">
 					<form action="" class="form-discount">
-						<input placeholder="Введите скидку в %" type="number" />
+						<input required placeholder="Введите скидку в %" min="0" max="100" type="number" />
 						<button>получить скидку</button>
 					</form>
 					<button>Убрать скидку</button>
