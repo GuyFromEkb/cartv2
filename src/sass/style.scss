@@ -26,7 +26,8 @@ body {
 	max-width: 1050px;
 	margin: 0 auto;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 300px 1fr;
+    gap: 200px;
 }
 
 .window {
@@ -36,7 +37,8 @@ body {
 	align-items: center;
 
 	background: linear-gradient(90deg, #3a4270, #5cc3ca);
-	max-width: 260px;
+	width: 260px;
+    height: 200px;
 	border-radius: 10px;
 }
 .form-item {
@@ -51,4 +53,109 @@ body {
 	input {
 		padding: 0 10px;
 	}
+}
+.cart {
+    border-radius:20px;
+    justify-self: end;
+    width: 400px;
+	background: linear-gradient(90deg, #b0b4cc, #5cc3ca);
+    padding: 10px 20px;
+}
+.cart__title {
+    text-align: center;
+    font-size: 20px;
+}
+.cart__empty {
+
+    margin: auto;
+    margin-top: 5px;
+    background:#3a4270;
+    color: #fff;
+    height: 50px;
+    width: 50%;
+    border-radius:20px;
+    p{
+        padding-top: 10px;
+
+        font-size: 20px;
+
+        text-align: center;
+    }
+}
+.cart__wrap {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.cart__discount {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    button {
+		max-width: 220px;
+		border-radius: 10px;
+	}
+}
+.form-discount {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    input,
+	button {
+		max-width: 220px;
+		border-radius: 10px;
+	}
+	input {
+		padding: 0 10px;
+	}
+}
+.item {
+    position: relative;
+    border-radius: 30px;
+    padding: 10px 40px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    p{
+        text-align: center;
+        font-weight: 600;
+    }
+    span{
+        display: block;
+        text-align: center;
+        word-wrap: break-word;
+    }
+}
+.item__close{
+    cursor: pointer;
+    right: 10px;
+    top: 10px;
+    position: absolute;
+    border-radius: 50%;
+    background: red;
+    height: 30px;
+    width: 30px;
+    &::after,&::before{
+        top: 14px;
+        left: 5px;
+        position: absolute;
+        content: "";
+        width: 70%;
+        height: 2px;
+        background:black;
+        transform: rotate(45deg);
+    }
+    &::before{
+        transform: rotate(-45deg);
+    }
+
+}
+.item__name {
+}
+.item__count {
+}
+.item__price {
 }
