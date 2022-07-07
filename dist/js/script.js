@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData(e.target);
         const formDataObj = (Object.fromEntries(formData.entries()));
 
-        // console.log(formDataJson)
         renderItem(formDataObj)
         checkListEmpty();
         e.target.reset();
@@ -71,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function deleteItem() {
         document.querySelector('.list__wrap').addEventListener('click', (e) => {
-            // console.log(e.target);
+
             const target = e.target;
             if (target.classList.contains('item__close')) {
                 target.closest('.item').remove();
@@ -86,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkListEmpty() {
         const itemsInLists = document.querySelector('.list__wrap').children.length;
 
-        // console.log(itemsInLists)
 
         if (itemsInLists === 0) {
             document.querySelector('.list__bottom').classList.remove('show');
